@@ -2636,7 +2636,7 @@ public class PgDatabaseMetaData implements DatabaseMetaData {
   }
 
   public int getResultSetHoldability() throws SQLException {
-    return ResultSet.HOLD_CURSORS_OVER_COMMIT;
+    return PgConnection.DEFAULT_RESULTSET_HOLDABILITY;
   }
 
   @Override
