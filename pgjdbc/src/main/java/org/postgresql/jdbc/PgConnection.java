@@ -80,7 +80,9 @@ public class PgConnection implements BaseConnection {
 
   private static final SQLPermission SQL_PERMISSION_ABORT = new SQLPermission("callAbort");
   private static final SQLPermission SQL_PERMISSION_NETWORK_TIMEOUT = new SQLPermission("setNetworkTimeout");
-
+  
+  static final int DEFAULT_RESULTSET_HOLDABILITY = ResultSet.CLOSE_CURSORS_AT_COMMIT;
+  
   //
   // Data initialized on construction:
   //
@@ -116,7 +118,7 @@ public class PgConnection implements BaseConnection {
   // Default forcebinary option.
   protected boolean forcebinary = false;
 
-  private int rsHoldability = ResultSet.CLOSE_CURSORS_AT_COMMIT;
+  private int rsHoldability = DEFAULT_RESULTSET_HOLDABILITY;
   private int savepointId = 0;
   // Connection's autocommit state.
   private boolean autoCommit = true;
