@@ -1,6 +1,6 @@
 # PostgreSQL backend protocol: wanted features
 
-Current protocol is documented here: http://www.postgresql.org/docs/9.4/static/protocol.html
+Current protocol is documented here: http://www.postgresql.org/docs/current/static/protocol.html
 
 It turns out it lacks certain features, thus it makes clients more complex, slower, etc.
 
@@ -78,3 +78,9 @@ large objects and so on
 - "query response status" messages being sent in plain text (`insert 1`, `select 10`, etc.).
 Having some binary there would make things easier to parse.
 - unable to use prepared statements for `set "application_name"=...`, etc
+
+### Craig Ringer
+- a protocol-level alternative to RETURNING that lets us specify a wanted-column-list,
+so we didn't have to hack around with query text.
+See https://github.com/pgjdbc/pgjdbc/issues/488#issuecomment-193804468
+
